@@ -47,7 +47,7 @@ namespace TripTracker.UI
             {
                 configure.AddPolicy("CreateTrips", policy =>
                 {
-                    policy.RequireUserName("uzunsy34@gmail.com").Build();
+                    policy.RequireAuthenticatedUser().Build();
                 });
             });
 
@@ -74,7 +74,16 @@ namespace TripTracker.UI
 
             app.UseAuthentication();
 
-            app.UseMvc();
+            app.UseMvc(
+            //    routes =>
+            //{
+            //    routes.MapRoute(
+            //    name: "areaRoute",
+            //    template: "{area:exists}/{controller=Home}/{action=Index}/{id?}");
+            //}
+            );
         }
+
     }
 }
+

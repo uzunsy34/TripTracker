@@ -9,7 +9,7 @@ using TripTracker.UI.Data;
 
 namespace TripTracker.UI.Controllers
 {
-    [Route("[controller]/[action]")]
+    [Route("foo/Account/[action]")]
     public class AccountController : Controller
     {
         private readonly SignInManager<ApplicationUser> _signInManager;

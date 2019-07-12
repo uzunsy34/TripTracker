@@ -5,20 +5,22 @@
 @using Microsoft.AspNetCore.Authorization
 @{
     ViewData["Title"] = "Index";
-    var canCreateTrips = await Auth.AuthorizeAsync(User, null, "CreateTrips");
+
 }
 
 <h2>Index</h2>
-@if (canCreateTrips == AuthorizationResult.Success())
+@if ((await Auth.AuthorizeAsync(User, null, "CreateTrips")).Succeeded)
+    {
+        <p>
+            <a asp-page="Create">Create New</a>
+        </p>
+    }
+@*@if (SignInManager.IsSignedIn(User))
 {
     <p>
         <a asp-page="Create">Create New</a>
     </p>
-}
-@*@if (SignInManager.IsSignedIn(User))
-    {
-
-    }*@
+}*@
 
 <table class="table">
     <thead>
